@@ -1,0 +1,17 @@
+title FSO 0.6
+
+note over browser:
+user submits a new note,
+causing a POST request and sending
+the new note and timestamp in JSON
+format to the server
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server->browser: 201 Created
+
+note over browser:
+server responds message 
+"note created" as JSON data
+to confirm request worked properly
+end note

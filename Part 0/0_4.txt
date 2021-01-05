@@ -1,0 +1,34 @@
+title FSO 0.4
+
+note over browser:
+user presses submit button in form-element
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server->browser: Status Code 302 - Redirect
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server->browser: HTML-code
+
+note over browser:
+HTML code causes a request for the
+stylesheet and js-code
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.hesinki.fi/exampleapp/main.js
+server->browser: main.js
+
+note over browser:
+js-code is executed, causes
+a request for JSON data from server
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data.json
+
+note over browser:
+event handler function is triggered,
+displays notes by creating a 'ul' element
+and appending each piece of JSON data as
+a 'li' list element

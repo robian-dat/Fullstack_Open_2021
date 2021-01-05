@@ -1,0 +1,26 @@
+title FSO 0.5
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: HTML-code
+
+note over browser:
+code in head causes request for
+stylesheet and js-script
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->browser: spa.js
+
+note over browser:
+js-script causes request for JSON-data
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data.json
+
+note over browser:
+js-script uses JSON.parse on
+response from server and uses
+the result in the redrawNotes function
+end note
